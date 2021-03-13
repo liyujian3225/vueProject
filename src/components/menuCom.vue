@@ -5,30 +5,20 @@
         mode="inline"
         theme="dark"
       >
-        <a-menu-item key="moneyFund">
-          <router-link to="/moneyFund">
-            <a-icon type="fund" />
-            货币型基金
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="bondFund">
-          <router-link to="/bondFund">
-            <a-icon type="appstore" />
-            债券型基金
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="equityFund">
-          <router-link to="/equityFund">
-            <a-icon type="sliders" />
-            股票型基金
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="hybridFund">
-          <router-link to="/hybridFund">
-            <a-icon type="box-plot" />
-            混合型基金
-          </router-link>
-        </a-menu-item>
+        <template v-for="(item, index) in menuList">
+          <a-menu-item
+            v-if="!item.childMenuList.length"
+            :key="index"
+          >
+            <router-link :to="item.routeKey">
+              <a-icon
+                type="appstore"
+                class="menuIcon"
+              />
+              <span class="menuName">{{ item.groupName }}</span>
+            </router-link>
+          </a-menu-item>
+        </template>
         <a-menu-item key="alipay">
           <a href="https://cn.investing.com/rates-bonds/u.s.-10-year-bond-yield" target="_blank" rel="noopener noreferrer">
             美国十年期国债收益率
@@ -42,8 +32,13 @@
 export default {
   name: "menuCom",
   data() {
-    return {
-
+    return{
+      menuList: [
+        { childMenuList: [], groupName: "货币型基金", routeKey: "/fund/moneyFund" },
+        { childMenuList: [], groupName: "债券型基金", routeKey: "/fund/bondFund" },
+        { childMenuList: [], groupName: "股票型基金", routeKey: "/fund/equityFund" },
+        { childMenuList: [], groupName: "混合型基金", routeKey: "/fund/hybridFund" },
+      ]
     }
   },
   props: {},

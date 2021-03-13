@@ -17,7 +17,9 @@
 export default {
   name: "index",
   data() {
+    return {
 
+    }
   },
   props: {},
   computed: {},

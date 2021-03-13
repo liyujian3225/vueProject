@@ -14,22 +14,22 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '@/views'),
     children: [
       {
-        path: '/moneyFund',
+        path: 'moneyFund',
         name: 'moneyFund',
         component: () => import(/* webpackChunkName: "about" */ '@/views/moneyFund')
       },
       {
-        path: '/bondFund',
+        path: 'bondFund',
         name: 'bondFund',
         component: () => import(/* webpackChunkName: "about" */ '@/views/bondFund')
       },
       {
-        path: '/equityFund',
+        path: 'equityFund',
         name: 'equityFund',
         component: () => import(/* webpackChunkName: "about" */ '@/views/equityFund')
       },
       {
-        path: '/hybridFund',
+        path: 'hybridFund',
         name: 'hybridFund',
         component: () => import(/* webpackChunkName: "about" */ '@/views/hybridFund')
       },
