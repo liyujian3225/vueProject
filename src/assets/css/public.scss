@@ -22,10 +22,33 @@ div.rightCon {
     height: 100%;
     overflow-y: auto;
     box-sizing: border-box;
-    padding: 30px 0.15625rem;
+    padding: 30px;
+  }
+
+  div.infoBox{
+    background: #fff;
+    padding: 14px;
+    box-sizing: border-box;
   }
 }
 
 .ant-menu-inline .ant-menu-submenu-title, .ant-menu-inline .ant-menu-item {
   font-size: 16px;
+}
+
+.ant-card {
+  margin-bottom: 10px;
+}
+
+.customMarginStyle {
+  margin-right: 10px;
+  flex-grow: 0;
+}
+
+.customInputWidth {
+  min-width: 160px;
+}
+
+.customFixedWidth {
+  width: 160px;
 }

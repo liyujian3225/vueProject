@@ -4,11 +4,12 @@
       <a-menu
         mode="inline"
         theme="dark"
+        v-model="current"
       >
-        <template v-for="(item, index) in menuList">
+        <template v-for="item in menuList">
           <a-menu-item
             v-if="!item.childMenuList.length"
-            :key="index"
+            :key="item.key"
           >
             <router-link :to="item.routeKey">
               <a-icon
@@ -33,11 +34,12 @@ export default {
   name: "menuCom",
   data() {
     return{
+      current: ['moneyFund'],
       menuList: [
-        { childMenuList: [], groupName: "货币型基金", routeKey: "/fund/moneyFund" },
-        { childMenuList: [], groupName: "债券型基金", routeKey: "/fund/bondFund" },
-        { childMenuList: [], groupName: "股票型基金", routeKey: "/fund/equityFund" },
-        { childMenuList: [], groupName: "混合型基金", routeKey: "/fund/hybridFund" },
+        { childMenuList: [], groupName: "货币型基金", routeKey: "/fund/moneyFund", key: 'moneyFund' },
+        { childMenuList: [], groupName: "债券型基金", routeKey: "/fund/bondFund", key: 'bondFund' },
+        { childMenuList: [], groupName: "股票型基金", routeKey: "/fund/equityFund", key: 'equityFund' },
+        { childMenuList: [], groupName: "混合型基金", routeKey: "/fund/hybridFund", key: 'hybridFund' },
       ]
     }
   },

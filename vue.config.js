@@ -1,7 +1,6 @@
 /* gzip压缩开始 */
 const path = require('path');
 const webpack = require('webpack');
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const productionGzipExtensions = ['js', 'css', 'html'];
 const isProduction = process.env.NODE_ENV === 'production';
 /* gzip压缩结束 */
@@ -11,15 +10,14 @@ module.exports = {
   productionSourceMap: false,  // 关闭生产环境下map分离文件
   outputDir:'visionserve',
   devServer: {
-    port: 8090,
+    port: 8080,
     proxy: {
-      '/newApi': {
-        target:'http://192.168.20.57:8081/',
-        // target:'http://192.168.1.39:8888/api/v1',
+      '/alicloudapi': {
+        target:'http://fund.market.alicloudapi.com',
         ws: false,
         changeOrigin: true,
         pathRewrite: {
-          '^/newApi': ''
+          '^/alicloudapi': ''
         }
       },
     },
@@ -29,15 +27,6 @@ module.exports = {
       filename: `js/[name].js`,
       chunkFilename: `js/[name].js`
     },
-
-    /* CDN引入后需的配置项externals */
-    externals: {
-      'vue': 'Vue',
-      'vue-router': 'VueRouter',
-      'vuex': 'Vuex',
-      'ant-design-vue': 'ant-design-vue',
-    },
-
     /* gzip压缩开始 */
     resolve:{
       alias:{
@@ -48,12 +37,6 @@ module.exports = {
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // 下面是下载的插件的配置
-      new CompressionWebpackPlugin({
-        algorithm: 'gzip',
-        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-        threshold: 1024,
-        minRatio: 0.8
-      }),
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 5,
         minChunkSize: 100
