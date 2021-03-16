@@ -38,7 +38,9 @@
   </div>
 </template>
 <script>
+import mixins from "@/views/mixins";
 export default {
+  mixins: [mixins],
   name: "fundViews",
   data() {
     return {

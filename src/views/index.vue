@@ -7,7 +7,7 @@
     </div>
 
     <div class="rightCon">
-      <div class="routerBox">
+      <div class="routerBox" ref="wrapper">
         <router-view/>
       </div>
     </div>
@@ -28,6 +28,7 @@ export default {
     menuCom: () => import(/* webpackChunkName: "menuCom" */ '@/components/menuCom')
   },
   mounted() {
+
   },
   methods: {},
   created() {
