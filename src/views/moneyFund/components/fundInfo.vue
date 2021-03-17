@@ -1,28 +1,6 @@
 <template>
   <div class="fundViews">
     <a-card>
-      <a-row :gutter="16">
-        <a-col :span="3">
-          <a-statistic :title="netValueData" :value="fundInfo['netValue']" style="margin-right: 50px" />
-        </a-col>
-        <template v-for="item in rangeType">
-          <a-col :span="3" :key="item.key">
-            <a-statistic
-              :title="item.name"
-              :precision="2"
-              suffix="%"
-              :value="fundInfo[item.key] * 100"
-              :value-style="{ color: fundInfo[item.key] < 0 ? '#3f8600' : '#cf1322' }"
-            >
-              <template #prefix>
-                <a-icon :type="fundInfo[item.key] < 0 ? 'arrow-down' : 'arrow-up'" />
-              </template>
-            </a-statistic>
-          </a-col>
-        </template>
-      </a-row>
-    </a-card>
-    <a-card>
       <a-descriptions bordered size="small">
         <template v-for="item in infoType">
           <a-descriptions-item :label="item.name" :key="item.key">
@@ -41,7 +19,7 @@
 import mixins from "@/views/mixins";
 export default {
   mixins: [mixins],
-  name: "fundViews",
+  name: "fundInfo",
   data() {
     return {
 
@@ -54,9 +32,7 @@ export default {
     },
   },
   computed: {
-    netValueData: function() {
-      return '最新净值（' + this.fundInfo.netValueDate.substr(5, 5) + '）';
-    }
+
   },
   components: {},
   mounted() {

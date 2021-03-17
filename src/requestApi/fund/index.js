@@ -8,7 +8,7 @@
 import axios from '../httpAxios';
 
 const fundApi = {
-  //  基金实时信息
+  //  基金信息
   getFundDetail (params) {
     return axios({
       url: `/alicloudapi/getFundDetail`,
@@ -16,6 +16,14 @@ const fundApi = {
       params: params,
     });
   },
+  //  基金走势数据
+  getFundYield (params) {
+    return axios({
+      url: `/alicloudapi/queryFundYield`,
+      method: 'get',
+      params: params,
+    });
+  }
 
 };
 export default fundApi

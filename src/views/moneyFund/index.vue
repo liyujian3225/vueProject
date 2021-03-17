@@ -21,9 +21,13 @@
       </func-menu>
     </div>
     <div>
+
+      <line-chart></line-chart>
+
       <a-spin :spinning="spinning">
         <div v-if="fundFullInfo" class="fundInfo">
-          <fund-views :fundInfo="fundFullInfo"></fund-views>
+          <fund-info :fundInfo="fundFullInfo"></fund-info>
+          <fund-charts :fundInfo="fundFullInfo"></fund-charts>
           <fund-strategy :fundInfo="fundFullInfo"></fund-strategy>
           <fund-managers :fundManagers="fundManagers"></fund-managers>
         </div>
@@ -49,11 +53,14 @@ export default {
   props: {},
   computed: {},
   components: {
-    funcMenu: () => import(/* webpackChunkName: "funcMenu" */ '@/components/funcMenu'),
-    fundViews: () => import(/* webpackChunkName: "investStrategy" */ './components/fundViews'),
+    fundInfo: () => import(/* webpackChunkName: "investStrategy" */ './components/fundInfo'),
+    fundCharts: () => import(/* webpackChunkName: "fundCharts" */ './components/fundCharts'),
     fundStrategy: () => import(/* webpackChunkName: "investStrategy" */ './components/fundStrategy'),
-    fundManagers: () => import(/* webpackChunkName: "investStrategy" */ './components/fundManagers'),
-    noData: () => import(/* webpackChunkName: "investStrategy" */ '@/components/noData'),
+    fundManagers: () => import(/* webpackChunkName: "fundManagers" */ './components/fundManagers'),
+    funcMenu: () => import(/* webpackChunkName: "funcMenu" */ '@/components/funcMenu'),
+    noData: () => import(/* webpackChunkName: "noData" */ '@/components/noData'),
+
+    lineChart: () => import(/* webpackChunkName: "lineChart" */ '@/components/charts/lineChart'),
   },
   mounted() {
   },
@@ -70,13 +77,12 @@ export default {
     }
   },
   created() {
-    this.getFundDetail()
+    // this.getFundDetail()
   },
   watch: {
     sendData: {
       deep: true,
-      handler: function(newVal) {
-        console.log(newVal.fundCode)
+      handler: function() {
         this.$debouncedFun(this, this.getFundDetail);
       },
     },
