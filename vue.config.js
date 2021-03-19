@@ -6,9 +6,11 @@ const isProduction = process.env.NODE_ENV === 'production';
 /* gzip压缩结束 */
 
 module.exports = {
-  publicPath: './',    // 公共路径
-  productionSourceMap: false,  // 关闭生产环境下map分离文件
-  outputDir:'visionserve',
+  publicPath: './',               //公共路径
+  outputDir:'dist',               //生成环境打包构建目录
+  assetsDir: '',                  //生成环境打包构建,js、css、img、fonts的存放目录
+  indexPath: 'index.html',        //指定生成的index.html的输出路径
+  productionSourceMap: false,     //关闭生产环境下map分离文件
   devServer: {
     port: 8080,
     proxy: {
