@@ -8,7 +8,7 @@
     - ```javascript
       //方法1
       //javascript来获取设备宽度
-      //纵向分类16份，根字体为设备宽度 / 16
+      //纵向分类16份，根字体为设备宽度的1/16
       window.onload = function(){
         (function() {
           var docElem = document.documentElement;

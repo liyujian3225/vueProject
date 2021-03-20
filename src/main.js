@@ -17,7 +17,7 @@ Vue.use(VCharts)
 //引入公共的样式
 import '@/assets/css/public.scss';
 
-//接口对象挂在到vue上
+//接口对象挂载到vue上
 import api from './requestApi/api';
 Vue.prototype.$api = api;
 
