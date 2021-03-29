@@ -3,7 +3,7 @@
     <Header/>
 
     <div class="leftNav">
-      <menuCom/>
+      <menuCom :activeRoute="$route"/>
     </div>
 
     <div class="rightCon">

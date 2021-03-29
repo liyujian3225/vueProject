@@ -4,7 +4,7 @@
       <a-menu
         mode="inline"
         theme="dark"
-        v-model="current"
+        v-model="selectKeys"
       >
         <template v-for="item in menuList">
           <a-menu-item
@@ -34,7 +34,7 @@ export default {
   name: "menuCom",
   data() {
     return{
-      current: ['moneyFund'],
+      selectKeys: [],
       menuList: [
         { childMenuList: [], groupName: "货币型基金", routeKey: "/fund/moneyFund", key: 'moneyFund' },
         { childMenuList: [], groupName: "债券型基金", routeKey: "/fund/bondFund", key: 'bondFund' },
@@ -43,15 +43,47 @@ export default {
       ]
     }
   },
-  props: {},
+  props: {
+    // 当前激活的导航
+    activeRoute: {
+      type: Object,
+      default: null,
+    }
+  },
   computed: {},
   components: {},
   mounted() {
   },
-  methods: {},
+  methods: {
+    //当前激活导航
+    onSelectKeys(val) {
+      //首次进入页面或刷新页面后保持当前菜单激活状态
+      let isExist;
+      let index = this.menuList.findIndex(item => {
+        if(!item.childMenuList.length) {
+          if(item.routeKey === this.$route.path) {
+            this.selectKeys = [];
+            this.selectKeys.push(item.routeKey)
+            return true;
+          }else {
+            return false;
+          }
+        }
+      })
+      if (index < 0) return
+    }
+  },
   created() {
   },
-  watch: {},
+  watch: {
+    activeRoute: {
+      deep: true,
+      immediate: true,
+      handler: function(val) {
+        this.onSelectKeys(val);
+      }
+    }
+  },
   activated() {
   },
   deactivated() {

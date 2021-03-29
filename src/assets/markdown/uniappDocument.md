@@ -1,7 +1,6 @@
 ## 框架选型
 
-`uni-app`基于[Vue.js](https://vuejs.org/) 开发前端应用的框架，优点是`编写一套代码，可发布到IOS、Android、Web、以及各种小程序、快应用等多个平台`
-
+`uni-app`基于[Vue.js](https://vuejs.org/) 开发前端应用的框架，优点是**编写一套代码，可发布到IOS、Android、Web、以及各种小程序、快应用等多个平台**
 ## 创建项目
 
 ### 1.可视化界面
