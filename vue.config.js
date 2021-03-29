@@ -11,6 +11,7 @@ module.exports = {
   assetsDir: '',                  //生成环境打包构建,js、css、img、fonts的存放目录
   indexPath: 'index.html',        //指定生成的index.html的输出路径
   productionSourceMap: false,     //关闭生产环境下map分离文件
+  lintOnSave: process.env.NODE_ENV !== 'production',
   devServer: {
     port: 8080,
     proxy: {
