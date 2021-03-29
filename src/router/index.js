@@ -12,26 +12,39 @@ const routes = [
     path: '/fund',
     name: 'fund',
     component: () => import(/* webpackChunkName: "about" */ '@/views'),
+    redirect: '/fund/moneyFund',
     children: [
       {
         path: 'moneyFund',
         name: 'moneyFund',
-        component: () => import(/* webpackChunkName: "about" */ '@/views/moneyFund')
+        component: () => import(/* webpackChunkName: "about" */ '@/views/moneyFund'),
+        meta: {
+          title: '货币型基金',
+        }
       },
       {
         path: 'bondFund',
         name: 'bondFund',
-        component: () => import(/* webpackChunkName: "about" */ '@/views/bondFund')
+        component: () => import(/* webpackChunkName: "about" */ '@/views/bondFund'),
+        meta: {
+          title: '债券型基金',
+        }
       },
       {
         path: 'equityFund',
         name: 'equityFund',
-        component: () => import(/* webpackChunkName: "about" */ '@/views/equityFund')
+        component: () => import(/* webpackChunkName: "about" */ '@/views/equityFund'),
+        meta: {
+          title: '股票型基金',
+        }
       },
       {
         path: 'hybridFund',
         name: 'hybridFund',
-        component: () => import(/* webpackChunkName: "about" */ '@/views/hybridFund')
+        component: () => import(/* webpackChunkName: "about" */ '@/views/hybridFund'),
+        meta: {
+          title: '混合型基金',
+        }
       },
     ]
   },

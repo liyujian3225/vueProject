@@ -8,7 +8,6 @@
       >
         <template v-for="item in menuList">
           <a-menu-item
-            v-if="!item.childMenuList.length"
             :key="item.key"
           >
             <router-link :to="item.routeKey">
@@ -34,12 +33,12 @@ export default {
   name: "menuCom",
   data() {
     return{
-      selectKeys: [],
+      selectKeys: ['moneyFund'],
       menuList: [
-        { childMenuList: [], groupName: "货币型基金", routeKey: "/fund/moneyFund", key: 'moneyFund' },
-        { childMenuList: [], groupName: "债券型基金", routeKey: "/fund/bondFund", key: 'bondFund' },
-        { childMenuList: [], groupName: "股票型基金", routeKey: "/fund/equityFund", key: 'equityFund' },
-        { childMenuList: [], groupName: "混合型基金", routeKey: "/fund/hybridFund", key: 'hybridFund' },
+        { groupName: "货币型基金", routeKey: "/fund/moneyFund", key: 'moneyFund' },
+        { groupName: "债券型基金", routeKey: "/fund/bondFund", key: 'bondFund' },
+        { groupName: "股票型基金", routeKey: "/fund/equityFund", key: 'equityFund' },
+        { groupName: "混合型基金", routeKey: "/fund/hybridFund", key: 'hybridFund' },
       ]
     }
   },
@@ -58,19 +57,16 @@ export default {
     //当前激活导航
     onSelectKeys(val) {
       //首次进入页面或刷新页面后保持当前菜单激活状态
-      let isExist;
-      let index = this.menuList.findIndex(item => {
-        if(!item.childMenuList.length) {
-          if(item.routeKey === this.$route.path) {
-            this.selectKeys = [];
-            this.selectKeys.push(item.routeKey)
-            return true;
-          }else {
-            return false;
-          }
+      this.menuList.findIndex(item => {
+        if(item.routeKey === this.$route.path) {
+          this.selectKeys = [];
+          this.selectKeys.push(item.key)
+          return true;  //后面的不再执行
+        }else {
+          this.selectKeys = [];
+          this.selectKeys.push(this.menuList[0].key)
         }
       })
-      if (index < 0) return
     }
   },
   created() {
