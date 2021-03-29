@@ -1,6 +1,6 @@
 <template>
   <ve-line
-    width="600px"
+    width="100%"
     :data="chartData"
     :settings="chartSettings"
   ></ve-line>

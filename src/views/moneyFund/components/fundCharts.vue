@@ -21,10 +21,7 @@
           </a-col>
         </template>
       </a-row>
-
-
-
-
+      <line-chart></line-chart>
     </a-card>
   </div>
 </template>
@@ -47,7 +44,9 @@ export default {
       return '最新净值（' + this.fundInfo.netValueDate.substr(5, 5) + '）';
     }
   },
-  components: {},
+  components: {
+    lineChart: () => import(/* webpackChunkName: "lineChart" */ '@/components/charts/lineChart'),
+  },
   mounted() {
   },
   methods: {

@@ -33,24 +33,6 @@ export default {
   data() {
     return {
       gender: [ '未知', '男', '女'],
-
-
-
-
-
-
-
-//       gmtModified	更新日期
-// ——birthday	出生日期
-// ——gmtCreate	任职日期
-
-
-
-
-
-
-
-
     }
   },
   props: {

@@ -21,9 +21,6 @@
       </func-menu>
     </div>
     <div>
-
-      <line-chart></line-chart>
-
       <a-spin :spinning="spinning">
         <div v-if="fundFullInfo" class="fundInfo">
           <fund-info :fundInfo="fundFullInfo"></fund-info>
@@ -59,8 +56,6 @@ export default {
     fundManagers: () => import(/* webpackChunkName: "fundManagers" */ './components/fundManagers'),
     funcMenu: () => import(/* webpackChunkName: "funcMenu" */ '@/components/funcMenu'),
     noData: () => import(/* webpackChunkName: "noData" */ '@/components/noData'),
-
-    lineChart: () => import(/* webpackChunkName: "lineChart" */ '@/components/charts/lineChart'),
   },
   mounted() {
   },
@@ -77,7 +72,7 @@ export default {
     }
   },
   created() {
-    // this.getFundDetail()
+    this.getFundDetail()
   },
   watch: {
     sendData: {
