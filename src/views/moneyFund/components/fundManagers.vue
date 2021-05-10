@@ -16,7 +16,7 @@
             <a-space direction="vertical">
               <p>
                 <a-tag>{{gender[item.gender]}}</a-tag>
-                <a-tag>{{incumbent ? '离职' : '在职'}}</a-tag>
+                <a-tag>{{item.incumbent ? '离职' : '在职'}}</a-tag>
                 <a-tag>{{item.educationLevel}}</a-tag>
               </p>
               <p>{{ item.background }}</p>

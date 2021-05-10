@@ -1,11 +1,20 @@
 <template>
   <div class="servererr">
     <div class="img">
-      <img src="@/assets/img/systemErrorPage/undev.png" alt/>
+      <a-result title="Great, we have done all the operations!">
+        <template #icon>
+          <a-icon type="smile" theme="twoTone" />
+        </template>
+        <template #extra>
+          <a-button type="primary">
+            Next
+          </a-button>
+        </template>
+      </a-result>
     </div>
     <p>此功能正在紧张开发中…敬请期待</p>
     <p class="p1">如果您有任何疑问，请随时与我们联系</p>
-    <p class="p1">联系电话：400-8638-211</p>
+    <p class="p1">联系电话：18734804473</p>
     <a href="#" @click="$router.push({path: '/'})">返回首页</a>
   </div>
 </template>

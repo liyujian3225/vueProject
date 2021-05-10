@@ -1,7 +1,13 @@
 <template>
   <div class="notauthority">
     <div class="img">
-      <img src="@/assets/img/systemErrorPage/403.png" alt />
+      <a-result status="403" title="403" sub-title="Sorry, you are not authorized to access this page.">
+        <template #extra>
+          <a-button type="primary">
+            Back Home
+          </a-button>
+        </template>
+      </a-result>
     </div>
     <p>您暂时没有权限访问该页面...</p>
     <a href="#" onClick="javascript :history.back(-1);">返回上一页面</a>

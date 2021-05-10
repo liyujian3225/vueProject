@@ -27,6 +27,7 @@
 </template>
 <script>
 import mixins from "@/views/mixins";
+import { pickTransform, mapTransform, reNameTransform } from "@/otherPlugin/dataSet";
 export default {
   mixins: [mixins],
   name: "fundCharts",
@@ -48,16 +49,20 @@ export default {
     lineChart: () => import(/* webpackChunkName: "lineChart" */ '@/components/charts/lineChart'),
   },
   mounted() {
+    this.getFundYield()
   },
   methods: {
+    //基金走势数据获取
     getFundYield() {
       this.$api.fundApi.getFundYield({ fundcode: this.fundInfo.fundCode}).then(response => {
-        console.log(response)
+        const { fundAndIndexYieldVoPair } = response.data;
+
+
       })
     }
   },
   created() {
-    this.getFundYield()
+
   },
   watch: {},
   activated() {

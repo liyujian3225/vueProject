@@ -58,6 +58,7 @@ export default {
     noData: () => import(/* webpackChunkName: "noData" */ '@/components/noData'),
   },
   mounted() {
+
   },
   methods: {
     getFundDetail() {

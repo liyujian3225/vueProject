@@ -1,7 +1,13 @@
 <template>
   <div class="notfound">
     <div class="img">
-      <img src="@/assets/img/systemErrorPage/404.png" alt/>
+      <a-result status="404" title="404" sub-title="Sorry, the page you visited does not exist.">
+        <template #extra>
+          <a-button type="primary">
+            Back Home
+          </a-button>
+        </template>
+      </a-result>
     </div>
     <p>哎呀，页面被飞船带走了...&nbsp;&nbsp;&nbsp;&nbsp;{{time}}秒后自动返回</p>
     <a href="#" @click="back">返回上一页面</a>

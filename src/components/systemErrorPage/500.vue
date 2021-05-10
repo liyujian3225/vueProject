@@ -1,7 +1,13 @@
 <template>
   <div class="servererr">
     <div class="img">
-      <img src="@/assets/img/systemErrorPage/500.png" alt/>
+      <a-result status="500" title="500" sub-title="Sorry, the server is wrong.">
+        <template #extra>
+          <a-button type="primary">
+            Back Home
+          </a-button>
+        </template>
+      </a-result>
     </div>
     <p>哎呀，服务器出了点小问题...</p>
     <a href="#" @click="$router.go(-1)">返回上一页面</a>

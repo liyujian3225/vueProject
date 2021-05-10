@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -52,38 +52,29 @@ const routes = [
   {
     path: "/undev",
     name: "undev",
-    component: () =>
-      import(
-        /* webpackChunkName: "undev" */ "@/components/systemErrorPage/undev"
-        ),
+    component: () => import(/* webpackChunkName: "undev" */ "@/components/systemErrorPage/undev"),
     meta: { title: "该模块未启用" },
   },
   // 500页面
   {
     path: "/systemError",
     name: "systemError",
-    component: () =>
-      import(
-        /* webpackChunkName: "systemError" */ "@/components/systemErrorPage/500"
-        ),
+    component: () => import(/* webpackChunkName: "systemError" */ "@/components/systemErrorPage/500"),
     meta: { title: "服务器内部异常" },
   },
   // 404页面
   {
     path: "*",
     name: "notfound",
-    component: () =>
-      import(
-        /* webpackChunkName: "notfound" */ "@/components/systemErrorPage/404"
-        ),
+    component: () => import(/* webpackChunkName: "notfound" */ "@/components/systemErrorPage/404"),
     meta: { title: "404" },
   },
-]
+];
 
 const customRouter = new VueRouter({
   mode: 'hash',
   routes
-})
+});
 
 customRouter.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
@@ -93,4 +84,4 @@ customRouter.beforeEach((to, from, next) => {
   next();
 });
 
-export default router
+export default customRouter

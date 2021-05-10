@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Bus from './eventBus'
 
 Vue.config.productionTip = false
 
@@ -12,7 +13,7 @@ Vue.use(Antd);
 
 //引入v-charts
 import VCharts from 'v-charts'
-Vue.use(VCharts)
+Vue.use(VCharts);
 
 //引入公共的样式
 import '@/assets/css/public.scss';
@@ -24,6 +25,9 @@ Vue.prototype.$api = api;
 /* 防抖函数 */
 import debouncedFun from "@/otherPlugin/debounced";
 Vue.prototype.$debouncedFun = debouncedFun;
+
+//中央事件总线挂载到vue上
+Vue.prototype.$bus = Bus;
 
 new Vue({
   router,
