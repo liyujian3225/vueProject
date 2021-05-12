@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import Bus from './eventBus'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 //引入ant-design-vue
 import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'

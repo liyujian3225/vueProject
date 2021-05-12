@@ -6,6 +6,17 @@
 <script>
   export default {
     name: 'Home',
+    data() {
+      return {
+
+      }
+    },
+    methods: {
+
+    },
+    created() {
+
+    }
   }
 </script>
 <style scoped lang="scss">

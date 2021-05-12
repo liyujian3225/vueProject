@@ -7,6 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "clean": "node build/bin/clean-dist.js",
+    "os": "node build/bin/query-os.js",
     "learn": "node build/webpack.engine.conf.js"
   },
   "dependencies": {
@@ -33,6 +35,8 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "chalk": "^1.1.3",
+    "rimraf": "^2.6.0"
   }
 }
