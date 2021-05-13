@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "node build/bin/log.js && vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-
-    "clean": "node build/bin/clean-dist.js",
-    "os": "node build/bin/query-os.js",
     "inquirer": "node build/bin/inquirer.js",
+    "clean": "node build/bin/clean-dist.js",
+    "log": "node build/bin/log.js",
     "merge": "node build/bin/merge-file.js"
   },
   "dependencies": {
