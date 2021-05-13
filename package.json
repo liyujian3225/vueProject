@@ -11,7 +11,7 @@
     "clean": "node build/bin/clean-dist.js",
     "os": "node build/bin/query-os.js",
     "inquirer": "node build/bin/inquirer.js",
-    "learn": "node build/webpack.engine.conf.js"
+    "merge": "node build/bin/merge-file.js"
   },
   "dependencies": {
     "@antv/data-set": "^0.11.8",
