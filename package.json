@@ -7,9 +7,10 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+
     "clean": "node build/bin/clean-dist.js",
     "os": "node build/bin/query-os.js",
-    "inquirer": "node build/bin/handdle-inquirer.js",
+    "inquirer": "node build/bin/inquirer.js",
     "learn": "node build/webpack.engine.conf.js"
   },
   "dependencies": {
